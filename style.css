@@ -1,7 +1,31 @@
+:root {
+  --clr-dark-grey: #110F0F;
+  --clr-gold: #AF8012;
+  --clr-light-b: #4AE3FB;
+  --clr-light-p: #DF2BDF;
+  --clr-white: #F5F5F5;
+  --ff-primary:'Kanit', sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+  --ff-sm0l: var(--ff-primary);
+
+  --fw-reg: 500;
+  --fw-bold: 800;
+  --fw-sm0l: 300;
+
+  --fs-body: 1.25rem;
+  --fs-headl: 3.75rem;
+  --fs-subhead: 2.25rem;
+  --fs-inter: 5rem;
+
+
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 body {
@@ -9,4 +33,67 @@ body {
   height: 100%;
   padding: 10px;
   margin: 0px;
+}
+
+.kitteh {
+  font-size: 1rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--clr-light-p);
+  border: 0.125em solid var(--clr-light-p);
+  text-decoration: none;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+
+  text-shadow: 0 0 0.25em hsl(0 0% 100% / 0.5), 0 0 1em var(--clr-light-p);
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-light-p), 0 0 0.5em 0 var(--clr-light-p);
+  position: relative;
+  transition: background-color 100ms linear;
+}
+
+.kitteh::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--clr-light-p);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.25);
+  filter: blur(1.5em);
+  opacity: 0.7;
+
+}
+
+.kitteh::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-light-p);
+  opacity: 0;
+  background-color: var(--clr-dark-grey);
+  z-index: -1;
+  transition: opacity 100ms linear;
+
+}
+
+.kitteh:hover::after {
+  opacity: .8;
+}
+
+.kitteh:hover,
+.kitteh:focus {
+  background-color: var(--clr-light-p);
+  color: var(--clr-dark-grey);
+  text-shadow: none;
+
 }
